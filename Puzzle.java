@@ -117,6 +117,7 @@ public class Puzzle {
         
         //p.(1000);
         p._puzzle = new int[][] {{8, 6, 7} , {2, 5, 4} , {3, 0, 1}};
+		p.shuffle(1);
         p._empty_r = 2;
         p._empty_c = 1;
         p.print();
@@ -125,7 +126,6 @@ public class Puzzle {
         //p.solve(31, -1, "");
 
         PuzzleSolver s = new PuzzleSolver(p);
-        s.solve();
         System.out.println(""+s.count()+"="+s.moves());
         p.print();
         System.out.println("isSorted="+p.isSolved());

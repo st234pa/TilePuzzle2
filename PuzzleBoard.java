@@ -9,8 +9,9 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 
     private Puzzle _puzzle;
     
-    // pre condition: 
-    // post condition:
+    // pre condition: the frame has been created
+    // post condition: a board (puzzle) is created and added onto the frame
+    //                 a tile arraylist is created  and shuffled
     // bigO notation: O(N) because we are using a for loop to go through 
     public PuzzleBoard(int n) {
         super(Color.GRAY);
@@ -28,9 +29,9 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         setSize(_tiles.get(0).getWidth()*n, _tiles.get(0).getHeight()*n);
     }
 
-    // pre condition:
-    // post condition:
-    // bigO notation:  
+    // pre condition: a puzzle board has been created and the tile arraylist has been created and shuffled
+    // post condition: the shuffled tiles from the arraylist are placed onto the board 
+    // bigO notation: O(N^2)
     private void placeTiles() {
         if(_puzzle == null)
             return;
@@ -49,25 +50,26 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
             }
     }
 
-    // pre condition:
-    // post condition:
-    // bigO notation:  
+    // pre condition: we have all of the tiles and the locations needed to actually place the tiles
+    // post condition: tiles are placed at the position (x,y)
+    // bigO notation: O(N^2)  
     public void setLocation(int x, int y) {
         super.setLocation(x, y);
         placeTiles();
     }
 
-    // pre condition:
-    // post condition:
-    // bigO notation:  
+    // pre condition: the tile we want to move has been clicked
+    // post condition: the tile clicked is moved to the empty space 
+    // bigO notation: O(N^2)
     public void tileClicked(int n) {
         int p = _puzzle.pos(n);
         slide(p);
     }
 
-    // pre condition:
-    // post condition:
-    // bigO notation:  
+    // pre condition: we want to move a tile
+    //                we can only move in one direction (either the row changes OR the column changes, but not both)
+    // post condition: the postion of the tile is changed and all of the tiles are replaced on the board
+    // bigO notation: O(N^2)
     public void slide(int p) {
         int dr = _puzzle.posRow(p) - _puzzle.emptyRow();
         int dc = _puzzle.posCol(p) - _puzzle.emptyCol();
@@ -79,16 +81,16 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         }
     }
 
-    // pre condition:
-    // post condition:
-    // bigO notation:  
+    // pre condition: the empty (gray) cell is clicked
+    // post condition: new puzzle solver is created (so, we find the most efficient solution) and then we actually play the solution
+    // bigO notation: O(1) 
     public void mouseClicked(MouseEvent e) {
         PuzzleSolver s = new PuzzleSolver(_puzzle);
         if(s.solve())
             s.play(this);
     }
 
-    // pre condition:
+    // pre condition: 
     // post condition:
     // bigO notation:  
     public void puzzleMove(int pos) {

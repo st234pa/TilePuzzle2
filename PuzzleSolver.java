@@ -5,27 +5,28 @@ public class PuzzleSolver {
     private int _count;
     private String _moves;
     
-    // pre condition:
-    // post condition:
-    // bigO notation:  
+    // pre condition: _puzzle needs to exist
+    // post condition: saves _puzzle into the variable p, which is a Puzzle
+    // bigO notation: O(1)
     public PuzzleSolver(Puzzle p) {
         _puzzle = p;
     }
 
-    // pre condition:
-    // post condition:
-    // bigO notation:  
+    // pre condition: _count needs to exist
+    // post condition: the private int _count is returned
+    // bigO notation: O(1) 
     public int count() {
         return _count;
     }
 
-    // pre condition:
-    // post condition:
-    // bigO notation:  
+    // pre condition: _moves needs to exist
+    // post condition: the private int _moves is returned
+    // bigO notation: O(1) 
     public String moves() {
         return _moves;
     }
     
+    //WE NEED TO GO OVER THIS BECAUSE IT IS SORT OF CONFUSING
     // pre condition:
     // post condition:
     // bigO notation:  
@@ -75,8 +76,9 @@ public class PuzzleSolver {
         return false;
     }
     
+    // GO OVER THE SOLVERS
     // pre condition:
-    // post condition:
+    // post condition: 
     // bigO notation:  
     public boolean solve() {
         _count = 0;

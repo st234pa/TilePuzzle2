@@ -9,6 +9,9 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
 
     private Puzzle _puzzle;
     
+    // pre condition: 
+    // post condition:
+    // bigO notation: O(N) because we are using a for loop to go through 
     public PuzzleBoard(int n) {
         super(Color.GRAY);
         //setLocation(0, 0);
@@ -25,6 +28,9 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         setSize(_tiles.get(0).getWidth()*n, _tiles.get(0).getHeight()*n);
     }
 
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     private void placeTiles() {
         if(_puzzle == null)
             return;
@@ -43,16 +49,25 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
             }
     }
 
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public void setLocation(int x, int y) {
         super.setLocation(x, y);
         placeTiles();
     }
 
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public void tileClicked(int n) {
         int p = _puzzle.pos(n);
         slide(p);
     }
 
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public void slide(int p) {
         int dr = _puzzle.posRow(p) - _puzzle.emptyRow();
         int dc = _puzzle.posCol(p) - _puzzle.emptyCol();
@@ -64,12 +79,18 @@ public class PuzzleBoard extends Rectangle implements PuzzlePlayer {
         }
     }
 
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public void mouseClicked(MouseEvent e) {
         PuzzleSolver s = new PuzzleSolver(_puzzle);
         if(s.solve())
             s.play(this);
     }
 
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public void puzzleMove(int pos) {
         slide(pos);
         

@@ -1,6 +1,3 @@
-
-
-
 public class PuzzleSolver {
     
     private Puzzle _puzzle;
@@ -8,18 +5,30 @@ public class PuzzleSolver {
     private int _count;
     private String _moves;
     
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public PuzzleSolver(Puzzle p) {
         _puzzle = p;
     }
 
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public int count() {
         return _count;
     }
 
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public String moves() {
         return _moves;
     }
     
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     private boolean solve(int count, int last, String stack) {
         if(_puzzle.isSolved())
         {
@@ -66,6 +75,9 @@ public class PuzzleSolver {
         return false;
     }
     
+    // pre condition:
+    // post condition:
+    // bigO notation:  
     public boolean solve() {
         _count = 0;
         _moves = "";
@@ -73,6 +85,9 @@ public class PuzzleSolver {
         return _count != 0;
     }
 
+    // pre condition: the tiles are shuffled and the user is going to click on tiles
+    // post condition: the user has clicked on a tile to move
+    // bigO notation: O(N^2) 
     public void play(PuzzlePlayer player) {
         for(int i=0, s=0; i<_count; i++) {
             int n = _moves.indexOf(':', s);
